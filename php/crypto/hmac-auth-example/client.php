@@ -20,6 +20,7 @@ curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
 $result = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-echo "RESULT\n======\n".print_r($result, true)."\n\n";
+echo "RESULT (code $httpcode)\n======\n".print_r($result, true)."\n\n";
